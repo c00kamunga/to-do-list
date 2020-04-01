@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 
 
 
 function App() {
+  const [newToDo, setNewToDo] = useState('')
   return (
     <div className="App">
 <h1>
