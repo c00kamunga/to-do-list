@@ -15,7 +15,9 @@ function handleNewToDoChange(e){
 
 function handleNewToDo(e){
 e.preventDefault()
-console.log(newToDo)
+if (newToDo === '') return
+setTodos([...todos,{id: Date.now(), text: newToDo}])
+e.target.reset()
 }
 
   return (
@@ -27,8 +29,11 @@ console.log(newToDo)
 <form onSubmit={handleNewToDo}>
   <input placeholder="your to-do..." onChange={handleNewToDoChange}/>
   <ul>
-    <li>Buy Milk</li>
-    <li>Buy Cheese</li>
+   {todos.map((todo) => (
+    <li>
+      {todo.text}
+    </li>
+   ))}
   </ul>
 </form>
     </div>
