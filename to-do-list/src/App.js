@@ -18,7 +18,13 @@ e.preventDefault()
 if (newToDo === '') return
 setTodos([...todos,{id: Date.now(), text: newToDo}])
 e.target.reset()
+console.log(todos)
 }
+
+function removeTodo(id){
+  setTodos(todos.filter((todo) => todo.id != id))
+}
+
 
   return (
     <div className="App">
@@ -30,8 +36,9 @@ e.target.reset()
   <input placeholder="your to-do..." onChange={handleNewToDoChange}/>
   <ul>
    {todos.map((todo) => (
-    <li>
+    <li key={todo.id}>
       {todo.text}
+      <a href="#" onClick={() => removeTodo(todo.id)}>Delete</a>
     </li>
    ))}
   </ul>
