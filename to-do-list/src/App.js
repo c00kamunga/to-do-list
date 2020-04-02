@@ -13,13 +13,18 @@ function handleNewToDoChange(e){
   setNewToDo(e.target.value)
 }
 
+function handleNewToDo(e){
+e.preventDefault()
+console.log(newToDo)
+}
+
   return (
     <div className="App">
 <h1>
   To Do List
 </h1>
 
-<form>
+<form onSubmit={handleNewToDo}>
   <input placeholder="your to-do..." onChange={handleNewToDoChange}/>
   <ul>
     <li>Buy Milk</li>
